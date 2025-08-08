@@ -87,9 +87,18 @@ public class Main {
             }
 
             case 6 ->{
+                FuncionarioDAO dataFuncionario = new FuncionarioDAO();
+
                 System.out.println("Digite o nome do funcionário: ");
                 String nome = input.nextLine();
 
+                System.out.println("Digite o cargo do funcionário: ");
+                String cargo = input.nextLine();
+
+                System.out.println("Digite o salário do funcionário: ");
+                double salario = input.nextInt();
+
+                dataFuncionario.inserir(nome, cargo, salario);
 
             }
         }
