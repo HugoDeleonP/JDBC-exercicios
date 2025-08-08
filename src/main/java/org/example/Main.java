@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.jdbc.dao.AlunoDAO;
-import org.example.jdbc.dao.PedidoDAO;
-import org.example.jdbc.dao.ProdutoDAO;
-import org.example.jdbc.dao.UsuarioDAO;
+import org.example.jdbc.dao.*;
 
 import java.util.Scanner;
 
@@ -70,14 +67,29 @@ public class Main {
                 System.out.println("Digite o preço total: ");
                 double total = input.nextDouble();
 
-                dataPedido.inserir();
+                dataPedido.inserir(cliente, data, total);
             }
 
             case 5 ->{
+                LivroDAO dataLivro = new LivroDAO();
+
+                System.out.println("Digite o título do livro: ");
+                String titulo = input.nextLine();
+
+                System.out.println("Digite o autor do livro: ");
+                String autor = input.nextLine();
+
+                System.out.println("Digite o ano de publicação: ");
+                int ano_publicacao = input.nextInt();
+
+                dataLivro.inserir(titulo, autor, ano_publicacao);
 
             }
 
             case 6 ->{
+                System.out.println("Digite o nome do funcionário: ");
+                String nome = input.nextLine();
+
 
             }
         }
