@@ -26,4 +26,23 @@ public class PedidoDAO {
             e.printStackTrace();
         }
     }
+
+    public void atualizarTotal(double total, int id ){
+        String sql = "UPDATE pedidos SET total=? WHERE id = ?;";
+
+        try(Connection conn = Conexao.conectar()){
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setDouble(1, total);
+            stmt.setInt(2, id);
+
+            stmt.executeUpdate();
+
+            System.out.println("Valor total atualizado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

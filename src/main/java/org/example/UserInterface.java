@@ -11,7 +11,6 @@ public class UserInterface {
         input = new Scanner(System.in);
     }
 
-
     public int escolhaTabela(){
         System.out.println("+-----------------------------------| CADASTRO |----------------------------------+");
         System.out.println("|                                                                                 |");
@@ -46,6 +45,14 @@ public class UserInterface {
         input.nextLine();
 
         return acaoCrud;
+    }
+
+    public int setId(String tabela){
+        System.out.printf("\nDigite o ID do %s: \n", tabela);
+        int id = input.nextInt();
+        input.nextLine();
+
+        return id;
     }
 
     public String setNome(String tabela){

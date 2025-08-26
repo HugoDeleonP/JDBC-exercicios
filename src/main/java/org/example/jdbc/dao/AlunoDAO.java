@@ -28,4 +28,24 @@ public class AlunoDAO {
         }
 
     }
+
+    public void atualizarCurso(String curso, String matricula){
+
+        String sql = "UPDATE alunos SET curso = ? WHERE matricula = ?;";
+
+        try(Connection conn = Conexao.conectar()){
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, curso);
+            stmt.setString(2, matricula);
+
+            stmt.executeUpdate();
+
+            System.out.println("Curso atualizado com sucesso!");
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+
 }

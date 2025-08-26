@@ -29,4 +29,24 @@ public class LivroDAO {
         }
 
     }
+
+    public void atualizarAutor(String autor, String titulo){
+
+        String sql = "UPDATE livros SET autor = ? WHERE titulo = ?;";
+
+        try(Connection conn = Conexao.conectar()){
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, autor);
+            stmt.setString(2, titulo);
+
+            stmt.executeUpdate();
+
+            System.out.println("Autor de livro atualizado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

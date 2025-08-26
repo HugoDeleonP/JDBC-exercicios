@@ -28,4 +28,22 @@ public class FuncionarioDAO {
             e.printStackTrace();
         }
     }
+
+    public void atualizarSalario(double salario, String nome){
+
+        String sql = "UPDATE funcionarios SET salario=? WHERE nome=?;";
+
+        try (Connection conn = Conexao.conectar();){
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setDouble(1, salario);
+            stmt.setString(2, nome);
+
+            System.out.println("Salário atualizado com sucesso!");
+        }
+        catch (SQLException e){
+
+        }
+    }
 }

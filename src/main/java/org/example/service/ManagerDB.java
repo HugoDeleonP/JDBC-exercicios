@@ -27,10 +27,22 @@ public class ManagerDB {
 
                     case 1 -> {
                         String usuario = ui.setNome("usuário");
-                        String senha = ui.setSenha();
                         String email = ui.setEmail();
 
-                        dataUsuario.inserir(usuario, senha, email);
+                        dataUsuario.inserir(usuario, email);
+                    }
+
+                    case 2 -> {
+
+                    }
+
+                    case 3 -> {
+                        String nome = ui.setNome("usuário");
+                        String email = ui.setEmail();
+
+                        //atualiza email através do nome do usuário
+
+                        dataUsuario.atualizarEmail(nome, email);
                     }
 
                 }
@@ -52,6 +64,14 @@ public class ManagerDB {
 
                         dataAluno.inserir(aluno, matricula, curso);
                     }
+
+                    case 3 ->{
+                        String matricula = ui.setMatricula();
+                        String curso = ui.setCurso();
+
+                        //atualiza curso através da matrícula
+                        dataAluno.atualizarCurso(curso, matricula);
+                    }
                 }
 
 
@@ -71,6 +91,14 @@ public class ManagerDB {
 
                         dataProduto.inserir(produto, preco, quantidade);
                     }
+
+                    case 3 ->{
+                        String nome = ui.setNome("produto");
+                        double preco = ui.setPreco();
+
+                        //atualiza preço através do nome do produto
+                        dataProduto.atualizarPreco(preco, nome);
+                    }
                 }
 
 
@@ -89,6 +117,14 @@ public class ManagerDB {
                         double total = ui.setTotal();
 
                         dataPedido.inserir(cliente, data, total);
+                    }
+
+                    case 3 ->{
+                        int id = ui.setId("cliente");
+                        double total = ui.setTotal();
+
+                        //atualiza total através do id
+                        dataPedido.atualizarTotal(total, id);
                     }
                 }
 
@@ -111,6 +147,14 @@ public class ManagerDB {
 
                     }
 
+                    case 3 ->{
+                        String titulo = ui.setNome("livro");
+                        String autor = ui.setAutor();
+
+                        //atualiza autor de um livro através título
+                        dataLivro.atualizarAutor(autor, titulo);
+                    }
+
                 }
             }
 
@@ -127,6 +171,14 @@ public class ManagerDB {
                         double salario = ui.setSalario();
 
                         dataFuncionario.inserir(nome, cargo, salario);
+                    }
+
+                    case 3 ->{
+
+                        String nome = ui.setNome("funcionário");
+                        double salario = ui.setSalario();
+
+                        dataFuncionario.atualizarSalario(salario, nome);
                     }
                 }
 

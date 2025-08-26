@@ -28,4 +28,21 @@ public class ProdutoDAO {
             e.printStackTrace();
         }
     }
+
+    public void atualizarPreco(double preco, String nome){
+
+        String sql = "UPDATE produtos SET preco = ? WHERE nome = ?;";
+
+        try(Connection conn = Conexao.conectar()){
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setDouble(1, preco);
+            stmt.setString(2, nome);
+
+            System.out.println("Preço atualizado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
