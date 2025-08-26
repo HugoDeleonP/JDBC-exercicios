@@ -46,4 +46,21 @@ public class FuncionarioDAO {
 
         }
     }
+
+    public void deletarFuncionario(String nome){
+        String sql = "DELETE FROM funcionarios WHERE nome=?;";
+
+        try(Connection conn = Conexao.conectar()){
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, nome);
+            stmt.executeUpdate();
+
+            System.out.println("Funcionário deletado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

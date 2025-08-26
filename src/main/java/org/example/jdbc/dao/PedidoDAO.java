@@ -45,4 +45,21 @@ public class PedidoDAO {
             e.printStackTrace();
         }
     }
+
+    public void deletarPedido(int id){
+        String sql = "DELETE FROM pedidos WHERE id=?;";
+
+        try(Connection conn = Conexao.conectar()){
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+
+            System.out.println("Pedido deletado com sucesso!");
+        }
+        catch (SQLException e){
+
+        }
+    }
 }

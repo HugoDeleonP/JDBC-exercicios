@@ -39,7 +39,26 @@ public class ProdutoDAO {
             stmt.setDouble(1, preco);
             stmt.setString(2, nome);
 
+            stmt.executeUpdate();
+
             System.out.println("Preço atualizado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deletarProduto(String nome){
+
+        String sql = "DELETE FROM produtos WHERE nome = ?;";
+
+        try(Connection conn = Conexao.conectar()){
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, nome);
+            stmt.executeUpdate();
+
+            System.out.println("Produto deletado com sucesso!");
         }
         catch (SQLException e){
             e.printStackTrace();

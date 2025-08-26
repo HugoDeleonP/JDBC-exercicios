@@ -26,7 +26,7 @@ public class UsuarioDAO {
     }
 
     public void listar(){
-        String sql = "SELECT * FROM usuario;";
+        String sql = "SELECT * FROM usuarios;";
 
 
     }
@@ -47,7 +47,20 @@ public class UsuarioDAO {
         }
     }
 
-    public void deletar(int id){
+    public void deletarUsuario(String nome){
+        String sql = "DELETE FROM usuarios WHERE nome = ?;";
 
+        try(Connection conn = Conexao.conectar()){
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, nome);
+            stmt.executeUpdate();
+
+            System.out.println("Usuário deletado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }

@@ -45,6 +45,12 @@ public class ManagerDB {
                         dataUsuario.atualizarEmail(nome, email);
                     }
 
+                    case 4->{
+                        String nome = ui.setNome("usuário");
+
+                        dataUsuario.deletarUsuario(nome);
+                    }
+
                 }
 
 
@@ -71,6 +77,11 @@ public class ManagerDB {
 
                         //atualiza curso através da matrícula
                         dataAluno.atualizarCurso(curso, matricula);
+                    }
+
+                    case 4 ->{
+                        String matricula = ui.setMatricula();
+                        dataAluno.deletarAluno(matricula);
                     }
                 }
 
@@ -99,6 +110,11 @@ public class ManagerDB {
                         //atualiza preço através do nome do produto
                         dataProduto.atualizarPreco(preco, nome);
                     }
+
+                    case 4 ->{
+                        String nome = ui.setNome("produto");
+                        dataProduto.deletarProduto(nome);
+                    }
                 }
 
 
@@ -125,6 +141,12 @@ public class ManagerDB {
 
                         //atualiza total através do id
                         dataPedido.atualizarTotal(total, id);
+                    }
+
+                    case 4 ->{
+                        int id = ui.setId("cliente");
+
+                        dataPedido.deletarPedido(id);
                     }
                 }
 
@@ -155,6 +177,11 @@ public class ManagerDB {
                         dataLivro.atualizarAutor(autor, titulo);
                     }
 
+                    case 4->{
+                        String titulo = ui.setNome("livro");
+                        dataLivro.deletarLivro(titulo);
+                    }
+
                 }
             }
 
@@ -179,6 +206,12 @@ public class ManagerDB {
                         double salario = ui.setSalario();
 
                         dataFuncionario.atualizarSalario(salario, nome);
+                    }
+
+                    case 4 ->{
+
+                        String nome = ui.setNome("funcionário");
+                        dataFuncionario.deletarFuncionario(nome);
                     }
                 }
 
